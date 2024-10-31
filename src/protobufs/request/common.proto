@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package common;
+
+// 이게 없으니 에러가 뜨네요 이유가 뭐일려나?
+import "google/protobuf/timestamp.proto";
+
+message CommonPacket {
+    uint32 handlerId = 1;
+    string userId = 2;
+    string version = 3;
+    bytes payload = 4;
+}
+
+message Ping {
+    int64 timestamp = 1;
+    uint32 latency = 2;
+}
+
+message Pong {    
+    // 유니티에서 보낸 타임 스탬프 형식을 처리하기
+    Timestamp timestamp = 1;
+    uint32 latency = 2;
+}
